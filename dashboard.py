@@ -55,9 +55,12 @@ REPORT_JSON = "reports/dpi_report.json"
 REPORT_CSV = "reports/dpi_report.csv"
 
 if not os.path.exists(REPORT_JSON) or not os.path.exists(REPORT_CSV):
-    st.warning("⚠️ No DPI Report found in `reports/`. Please run `python run_dpi.py <input.pcap> <output.pcap>` first to generate threat intelligence data.")
-    st.info("Quick run command: `python run_dpi.py test_attack.pcap output.pcap`")
-    st.stop()
+    try:
+        import generate_demo_report
+    except Exception as e:
+        st.warning(f"⚠️ Report file missing and auto-generation failed: {e}")
+        st.stop()
+
 
 with open(REPORT_JSON, 'r') as f:
     report_data = json.load(f)
