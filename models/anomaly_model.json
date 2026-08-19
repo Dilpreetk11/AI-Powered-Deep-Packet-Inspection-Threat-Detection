@@ -1,0 +1,4056 @@
+{
+  "model_type": "RandomForestClassifier",
+  "task": "anomaly_threat_detection",
+  "num_features": 32,
+  "feature_names": [
+    "duration_sec",
+    "pkts_src",
+    "pkts_dst",
+    "bytes_src",
+    "bytes_dst",
+    "pkt_len_mean",
+    "pkt_len_std",
+    "iat_mean",
+    "iat_std",
+    "bytes_ratio",
+    "p1_len",
+    "p2_len",
+    "p3_len",
+    "p4_len",
+    "p5_len",
+    "p6_len",
+    "p7_len",
+    "p8_len",
+    "p1_iat",
+    "p2_iat",
+    "p3_iat",
+    "p4_iat",
+    "p5_iat",
+    "p6_iat",
+    "p7_iat",
+    "p8_iat",
+    "payload_entropy_mean",
+    "dest_port",
+    "tcp_syn_count",
+    "tcp_fin_count",
+    "tcp_rst_count",
+    "sni_present"
+  ],
+  "classes": [
+    "BENIGN",
+    "C2_BEACONING",
+    "DATA_EXFILTRATION",
+    "OBFUSCATED_TUNNEL",
+    "SYN_FLOOD"
+  ],
+  "feature_importances": {
+    "duration_sec": 0.019718370479030932,
+    "pkts_src": 0.03789915443864087,
+    "pkts_dst": 0.01210445831947912,
+    "bytes_src": 0.13904966682585965,
+    "bytes_dst": 0.018482165134547774,
+    "pkt_len_mean": 0.09019550822519479,
+    "pkt_len_std": 0.07519720272711311,
+    "iat_mean": 0.01806849664134039,
+    "iat_std": 0.06835413420968504,
+    "bytes_ratio": 0.02491609875776449,
+    "p1_len": 0.014737993430885544,
+    "p2_len": 0.012613818488683651,
+    "p3_len": 0.0003430850662472377,
+    "p4_len": 0.02814671444155966,
+    "p5_len": 0.00036908037550973505,
+    "p6_len": 0.015655710980414822,
+    "p7_len": 0.016205639461244106,
+    "p8_len": 5.044645855956755e-07,
+    "p1_iat": 0.033159582129691216,
+    "p2_iat": 0.028825266741832514,
+    "p3_iat": 0.008653168402804001,
+    "p4_iat": 0.0135508900647319,
+    "p5_iat": 0.012169153289033032,
+    "p6_iat": 7.549690735493771e-05,
+    "p7_iat": 0.012766909881358368,
+    "p8_iat": 0.002895343545328705,
+    "payload_entropy_mean": 0.07616017073396968,
+    "dest_port": 0.0531936971660726,
+    "tcp_syn_count": 0.09932078501193817,
+    "tcp_fin_count": 0.005979066857935537,
+    "tcp_rst_count": 0.0,
+    "sni_present": 0.06119266680016279
+  },
+  "trees": [
+    {
+      "node_id": 0,
+      "feature": 5,
+      "feature_name": "pkt_len_mean",
+      "threshold": 78.14558029174805,
+      "left": {
+        "node_id": 1,
+        "feature": 26,
+        "feature_name": "payload_entropy_mean",
+        "threshold": 1.2588402032852173,
+        "left": {
+          "node_id": 2,
+          "feature": 7,
+          "feature_name": "iat_mean",
+          "threshold": 8.354608144145459e-05,
+          "left": {
+            "node_id": 3,
+            "value": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "right": {
+            "node_id": 4,
+            "value": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        },
+        "right": {
+          "node_id": 5,
+          "value": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "right": {
+        "node_id": 6,
+        "feature": 1,
+        "feature_name": "pkts_src",
+        "threshold": 187.0,
+        "left": {
+          "node_id": 7,
+          "feature": 8,
+          "feature_name": "iat_std",
+          "threshold": 0.0009909184882417321,
+          "left": {
+            "node_id": 8,
+            "feature": 0,
+            "feature_name": "duration_sec",
+            "threshold": 1.3514066636562347,
+            "left": {
+              "node_id": 9,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 10,
+              "value": [
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "right": {
+            "node_id": 11,
+            "feature": 3,
+            "feature_name": "bytes_src",
+            "threshold": 14918.20068359375,
+            "left": {
+              "node_id": 12,
+              "feature": 31,
+              "feature_name": "sni_present",
+              "threshold": 0.5,
+              "left": {
+                "node_id": 13,
+                "feature": 0,
+                "feature_name": "duration_sec",
+                "threshold": 2.264382243156433,
+                "left": {
+                  "node_id": 14,
+                  "feature": 3,
+                  "feature_name": "bytes_src",
+                  "threshold": 1955.59765625,
+                  "left": {
+                    "node_id": 15,
+                    "value": [
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "right": {
+                    "node_id": 16,
+                    "value": [
+                      0.23307828134196584,
+                      0.0,
+                      0.0,
+                      0.7669217186580342,
+                      0.0
+                    ]
+                  }
+                },
+                "right": {
+                  "node_id": 17,
+                  "feature": 1,
+                  "feature_name": "pkts_src",
+                  "threshold": 15.0,
+                  "left": {
+                    "node_id": 18,
+                    "value": [
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "right": {
+                    "node_id": 19,
+                    "value": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      1.0,
+                      0.0
+                    ]
+                  }
+                }
+              },
+              "right": {
+                "node_id": 20,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "right": {
+              "node_id": 21,
+              "feature": 9,
+              "feature_name": "bytes_ratio",
+              "threshold": 7481.689493179321,
+              "left": {
+                "node_id": 22,
+                "feature": 0,
+                "feature_name": "duration_sec",
+                "threshold": 11.624954223632812,
+                "left": {
+                  "node_id": 23,
+                  "feature": 26,
+                  "feature_name": "payload_entropy_mean",
+                  "threshold": 7.845564603805542,
+                  "left": {
+                    "node_id": 24,
+                    "value": [
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "right": {
+                    "node_id": 25,
+                    "feature": 18,
+                    "feature_name": "p1_iat",
+                    "threshold": 0.01263981917873025,
+                    "left": {
+                      "node_id": 26,
+                      "feature": 4,
+                      "feature_name": "bytes_dst",
+                      "threshold": 44478.56640625,
+                      "left": {
+                        "node_id": 27,
+                        "value": [
+                          0.0,
+                          0.0,
+                          0.0,
+                          1.0,
+                          0.0
+                        ]
+                      },
+                      "right": {
+                        "node_id": 28,
+                        "value": [
+                          0.07061340941512124,
+                          0.0,
+                          0.0,
+                          0.9293865905848788,
+                          0.0
+                        ]
+                      }
+                    },
+                    "right": {
+                      "node_id": 29,
+                      "feature": 9,
+                      "feature_name": "bytes_ratio",
+                      "threshold": 0.4144764393568039,
+                      "left": {
+                        "node_id": 30,
+                        "value": [
+                          0.046371380895225266,
+                          0.0,
+                          0.0,
+                          0.9536286191047747,
+                          0.0
+                        ]
+                      },
+                      "right": {
+                        "node_id": 31,
+                        "value": [
+                          0.0,
+                          0.0,
+                          0.0,
+                          1.0,
+                          0.0
+                        ]
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "node_id": 32,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "right": {
+                "node_id": 33,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        },
+        "right": {
+          "node_id": 34,
+          "value": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "node_id": 0,
+      "feature": 26,
+      "feature_name": "payload_entropy_mean",
+      "threshold": 1.2532895803451538,
+      "left": {
+        "node_id": 1,
+        "value": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "right": {
+        "node_id": 2,
+        "feature": 5,
+        "feature_name": "pkt_len_mean",
+        "threshold": 139.96688842773438,
+        "left": {
+          "node_id": 3,
+          "feature": 2,
+          "feature_name": "pkts_dst",
+          "threshold": 23.0,
+          "left": {
+            "node_id": 4,
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "right": {
+            "node_id": 5,
+            "feature": 12,
+            "feature_name": "p3_len",
+            "threshold": 139.76763153076172,
+            "left": {
+              "node_id": 6,
+              "feature": 16,
+              "feature_name": "p7_len",
+              "threshold": 81.0124740600586,
+              "left": {
+                "node_id": 7,
+                "value": [
+                  0.007666531275385863,
+                  0.992333468724614,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 8,
+                "feature": 6,
+                "feature_name": "pkt_len_std",
+                "threshold": 0.17344269156455994,
+                "left": {
+                  "node_id": 9,
+                  "value": [
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "right": {
+                  "node_id": 10,
+                  "value": [
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "right": {
+              "node_id": 11,
+              "value": [
+                0.0848433768787751,
+                0.9151566231212249,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        },
+        "right": {
+          "node_id": 12,
+          "feature": 31,
+          "feature_name": "sni_present",
+          "threshold": 0.5,
+          "left": {
+            "node_id": 13,
+            "feature": 9,
+            "feature_name": "bytes_ratio",
+            "threshold": 60.75038719177246,
+            "left": {
+              "node_id": 14,
+              "feature": 26,
+              "feature_name": "payload_entropy_mean",
+              "threshold": 6.815475940704346,
+              "left": {
+                "node_id": 15,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 16,
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            },
+            "right": {
+              "node_id": 17,
+              "feature": 15,
+              "feature_name": "p6_len",
+              "threshold": 893.1604309082031,
+              "left": {
+                "node_id": 18,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 19,
+                "feature": 19,
+                "feature_name": "p2_iat",
+                "threshold": 0.017451101914048195,
+                "left": {
+                  "node_id": 20,
+                  "value": [
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "right": {
+                  "node_id": 21,
+                  "value": [
+                    0.23063297118564002,
+                    0.0,
+                    0.7693670288143599,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "right": {
+            "node_id": 22,
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "node_id": 0,
+      "feature": 5,
+      "feature_name": "pkt_len_mean",
+      "threshold": 77.99359893798828,
+      "left": {
+        "node_id": 1,
+        "feature": 6,
+        "feature_name": "pkt_len_std",
+        "threshold": 4.238402366638184,
+        "left": {
+          "node_id": 2,
+          "feature": 1,
+          "feature_name": "pkts_src",
+          "threshold": 11.5,
+          "left": {
+            "node_id": 3,
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "right": {
+            "node_id": 4,
+            "value": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        },
+        "right": {
+          "node_id": 5,
+          "value": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "right": {
+        "node_id": 6,
+        "feature": 8,
+        "feature_name": "iat_std",
+        "threshold": 0.005001266719773412,
+        "left": {
+          "node_id": 7,
+          "feature": 5,
+          "feature_name": "pkt_len_mean",
+          "threshold": 1100.1407470703125,
+          "left": {
+            "node_id": 8,
+            "feature": 4,
+            "feature_name": "bytes_dst",
+            "threshold": 206.62745666503906,
+            "left": {
+              "node_id": 9,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 10,
+              "feature": 13,
+              "feature_name": "p4_len",
+              "threshold": 141.60638427734375,
+              "left": {
+                "node_id": 11,
+                "feature": 1,
+                "feature_name": "pkts_src",
+                "threshold": 20.5,
+                "left": {
+                  "node_id": 12,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "right": {
+                  "node_id": 13,
+                  "feature": 15,
+                  "feature_name": "p6_len",
+                  "threshold": 140.32263946533203,
+                  "left": {
+                    "node_id": 14,
+                    "value": [
+                      0.0,
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "right": {
+                    "node_id": 15,
+                    "value": [
+                      0.015216405502090994,
+                      0.984783594497909,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              },
+              "right": {
+                "node_id": 16,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          "right": {
+            "node_id": 17,
+            "feature": 1,
+            "feature_name": "pkts_src",
+            "threshold": 126.0,
+            "left": {
+              "node_id": 18,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 19,
+              "value": [
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        },
+        "right": {
+          "node_id": 20,
+          "feature": 27,
+          "feature_name": "dest_port",
+          "threshold": 890.0,
+          "left": {
+            "node_id": 21,
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "right": {
+            "node_id": 22,
+            "value": [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "node_id": 0,
+      "feature": 10,
+      "feature_name": "p1_len",
+      "threshold": 140.9630584716797,
+      "left": {
+        "node_id": 1,
+        "feature": 28,
+        "feature_name": "tcp_syn_count",
+        "threshold": 10.5,
+        "left": {
+          "node_id": 2,
+          "feature": 1,
+          "feature_name": "pkts_src",
+          "threshold": 24.5,
+          "left": {
+            "node_id": 3,
+            "feature": 3,
+            "feature_name": "bytes_src",
+            "threshold": 14516.13330078125,
+            "left": {
+              "node_id": 4,
+              "feature": 2,
+              "feature_name": "pkts_dst",
+              "threshold": 0.5,
+              "left": {
+                "node_id": 5,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 6,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "right": {
+              "node_id": 7,
+              "value": [
+                0.1319120586275816,
+                0.0,
+                0.0,
+                0.8680879413724183,
+                0.0
+              ]
+            }
+          },
+          "right": {
+            "node_id": 8,
+            "feature": 6,
+            "feature_name": "pkt_len_std",
+            "threshold": 17.714817762374878,
+            "left": {
+              "node_id": 9,
+              "value": [
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 10,
+              "feature": 31,
+              "feature_name": "sni_present",
+              "threshold": 0.5,
+              "left": {
+                "node_id": 11,
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 12,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        },
+        "right": {
+          "node_id": 13,
+          "feature": 0,
+          "feature_name": "duration_sec",
+          "threshold": 0.0028685841243714094,
+          "left": {
+            "node_id": 14,
+            "value": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "right": {
+            "node_id": 15,
+            "value": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "right": {
+        "node_id": 16,
+        "feature": 24,
+        "feature_name": "p7_iat",
+        "threshold": 0.01231856970116496,
+        "left": {
+          "node_id": 17,
+          "feature": 8,
+          "feature_name": "iat_std",
+          "threshold": 0.0051543007139116526,
+          "left": {
+            "node_id": 18,
+            "feature": 2,
+            "feature_name": "pkts_dst",
+            "threshold": 1.5,
+            "left": {
+              "node_id": 19,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 20,
+              "feature": 31,
+              "feature_name": "sni_present",
+              "threshold": 0.5,
+              "left": {
+                "node_id": 21,
+                "value": [
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 22,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          "right": {
+            "node_id": 23,
+            "feature": 26,
+            "feature_name": "payload_entropy_mean",
+            "threshold": 7.850560903549194,
+            "left": {
+              "node_id": 24,
+              "feature": 26,
+              "feature_name": "payload_entropy_mean",
+              "threshold": 3.2282228469848633,
+              "left": {
+                "node_id": 25,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 26,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "right": {
+              "node_id": 27,
+              "feature": 27,
+              "feature_name": "dest_port",
+              "threshold": 2890.5,
+              "left": {
+                "node_id": 28,
+                "value": [
+                  0.04637138089522526,
+                  0.0,
+                  0.0,
+                  0.9536286191047747,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 29,
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        },
+        "right": {
+          "node_id": 30,
+          "feature": 27,
+          "feature_name": "dest_port",
+          "threshold": 890.0,
+          "left": {
+            "node_id": 31,
+            "feature": 5,
+            "feature_name": "pkt_len_mean",
+            "threshold": 1348.939697265625,
+            "left": {
+              "node_id": 32,
+              "feature": 7,
+              "feature_name": "iat_mean",
+              "threshold": 0.009763533249497414,
+              "left": {
+                "node_id": 33,
+                "feature": 3,
+                "feature_name": "bytes_src",
+                "threshold": 25993.458984375,
+                "left": {
+                  "node_id": 34,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "right": {
+                  "node_id": 35,
+                  "value": [
+                    0.060359125982548494,
+                    0.0,
+                    0.9396408740174514,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "right": {
+                "node_id": 36,
+                "feature": 10,
+                "feature_name": "p1_len",
+                "threshold": 142.3275909423828,
+                "left": {
+                  "node_id": 37,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "right": {
+                  "node_id": 38,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "right": {
+              "node_id": 39,
+              "value": [
+                0.027757051186390096,
+                0.0,
+                0.97224294881361,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "right": {
+            "node_id": 40,
+            "feature": 5,
+            "feature_name": "pkt_len_mean",
+            "threshold": 1195.391845703125,
+            "left": {
+              "node_id": 41,
+              "value": [
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 42,
+              "value": [
+                0.0,
+                0.0,
+                0.654275092936803,
+                0.34572490706319703,
+                0.0
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "node_id": 0,
+      "feature": 6,
+      "feature_name": "pkt_len_std",
+      "threshold": 3.9993510246276855,
+      "left": {
+        "node_id": 1,
+        "feature": 18,
+        "feature_name": "p1_iat",
+        "threshold": 0.003492325311526656,
+        "left": {
+          "node_id": 2,
+          "feature": 3,
+          "feature_name": "bytes_src",
+          "threshold": 755.9359893798828,
+          "left": {
+            "node_id": 3,
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "right": {
+            "node_id": 4,
+            "value": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        },
+        "right": {
+          "node_id": 5,
+          "feature": 2,
+          "feature_name": "pkts_dst",
+          "threshold": 13.0,
+          "left": {
+            "node_id": 6,
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "right": {
+            "node_id": 7,
+            "value": [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "right": {
+        "node_id": 8,
+        "feature": 3,
+        "feature_name": "bytes_src",
+        "threshold": 152012.14453125,
+        "left": {
+          "node_id": 9,
+          "feature": 3,
+          "feature_name": "bytes_src",
+          "threshold": 15869.00048828125,
+          "left": {
+            "node_id": 10,
+            "feature": 27,
+            "feature_name": "dest_port",
+            "threshold": 890.0,
+            "left": {
+              "node_id": 11,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 12,
+              "value": [
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          },
+          "right": {
+            "node_id": 13,
+            "feature": 31,
+            "feature_name": "sni_present",
+            "threshold": 0.5,
+            "left": {
+              "node_id": 14,
+              "feature": 20,
+              "feature_name": "p3_iat",
+              "threshold": 0.005764765432104468,
+              "left": {
+                "node_id": 15,
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 16,
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            },
+            "right": {
+              "node_id": 17,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        },
+        "right": {
+          "node_id": 18,
+          "value": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "node_id": 0,
+      "feature": 15,
+      "feature_name": "p6_len",
+      "threshold": 143.20584106445312,
+      "left": {
+        "node_id": 1,
+        "feature": 28,
+        "feature_name": "tcp_syn_count",
+        "threshold": 10.5,
+        "left": {
+          "node_id": 2,
+          "feature": 20,
+          "feature_name": "p3_iat",
+          "threshold": 0.03927174210548401,
+          "left": {
+            "node_id": 3,
+            "feature": 11,
+            "feature_name": "p2_len",
+            "threshold": 505.3663330078125,
+            "left": {
+              "node_id": 4,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 5,
+              "value": [
+                0.19557970119767873,
+                0.0,
+                0.0,
+                0.8044202988023214,
+                0.0
+              ]
+            }
+          },
+          "right": {
+            "node_id": 6,
+            "feature": 2,
+            "feature_name": "pkts_dst",
+            "threshold": 24.5,
+            "left": {
+              "node_id": 7,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 8,
+              "feature": 14,
+              "feature_name": "p5_len",
+              "threshold": 146.22528839111328,
+              "left": {
+                "node_id": 9,
+                "feature": 26,
+                "feature_name": "payload_entropy_mean",
+                "threshold": 7.039707899093628,
+                "left": {
+                  "node_id": 10,
+                  "feature": 25,
+                  "feature_name": "p8_iat",
+                  "threshold": 0.060004280880093575,
+                  "left": {
+                    "node_id": 11,
+                    "feature": 3,
+                    "feature_name": "bytes_src",
+                    "threshold": 269.17579650878906,
+                    "left": {
+                      "node_id": 12,
+                      "value": [
+                        0.0,
+                        1.0,
+                        0.0,
+                        0.0,
+                        0.0
+                      ]
+                    },
+                    "right": {
+                      "node_id": 13,
+                      "value": [
+                        0.0,
+                        1.0,
+                        0.0,
+                        0.0,
+                        0.0
+                      ]
+                    }
+                  },
+                  "right": {
+                    "node_id": 14,
+                    "value": [
+                      0.02997667378033649,
+                      0.9700233262196635,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                },
+                "right": {
+                  "node_id": 15,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "right": {
+                "node_id": 16,
+                "feature": 6,
+                "feature_name": "pkt_len_std",
+                "threshold": 293.1459503173828,
+                "left": {
+                  "node_id": 17,
+                  "feature": 29,
+                  "feature_name": "tcp_fin_count",
+                  "threshold": 0.5,
+                  "left": {
+                    "node_id": 18,
+                    "value": [
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "right": {
+                    "node_id": 19,
+                    "value": [
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                },
+                "right": {
+                  "node_id": 20,
+                  "value": [
+                    0.1542256263793327,
+                    0.0,
+                    0.0,
+                    0.8457743736206673,
+                    0.0
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "right": {
+          "node_id": 21,
+          "feature": 13,
+          "feature_name": "p4_len",
+          "threshold": 52.05409049987793,
+          "left": {
+            "node_id": 22,
+            "value": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "right": {
+            "node_id": 23,
+            "value": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "right": {
+        "node_id": 24,
+        "feature": 8,
+        "feature_name": "iat_std",
+        "threshold": 0.005001266719773412,
+        "left": {
+          "node_id": 25,
+          "feature": 31,
+          "feature_name": "sni_present",
+          "threshold": 0.5,
+          "left": {
+            "node_id": 26,
+            "feature": 11,
+            "feature_name": "p2_len",
+            "threshold": 832.7524108886719,
+            "left": {
+              "node_id": 27,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 28,
+              "value": [
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "right": {
+            "node_id": 29,
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "right": {
+          "node_id": 30,
+          "feature": 27,
+          "feature_name": "dest_port",
+          "threshold": 890.0,
+          "left": {
+            "node_id": 31,
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "right": {
+            "node_id": 32,
+            "value": [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "node_id": 0,
+      "feature": 28,
+      "feature_name": "tcp_syn_count",
+      "threshold": 10.5,
+      "left": {
+        "node_id": 1,
+        "feature": 21,
+        "feature_name": "p4_iat",
+        "threshold": 0.011920806486159563,
+        "left": {
+          "node_id": 2,
+          "feature": 3,
+          "feature_name": "bytes_src",
+          "threshold": 151788.80859375,
+          "left": {
+            "node_id": 3,
+            "feature": 3,
+            "feature_name": "bytes_src",
+            "threshold": 28765.8837890625,
+            "left": {
+              "node_id": 4,
+              "feature": 25,
+              "feature_name": "p8_iat",
+              "threshold": 0.11382809653878212,
+              "left": {
+                "node_id": 5,
+                "feature": 25,
+                "feature_name": "p8_iat",
+                "threshold": 0.0005241296312306076,
+                "left": {
+                  "node_id": 6,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "right": {
+                  "node_id": 7,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "right": {
+                "node_id": 8,
+                "feature": 15,
+                "feature_name": "p6_len",
+                "threshold": 682.3491821289062,
+                "left": {
+                  "node_id": 9,
+                  "feature": 6,
+                  "feature_name": "pkt_len_std",
+                  "threshold": 105.91313552856445,
+                  "left": {
+                    "node_id": 10,
+                    "value": [
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "right": {
+                    "node_id": 11,
+                    "value": [
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                },
+                "right": {
+                  "node_id": 12,
+                  "value": [
+                    0.29848174868095184,
+                    0.0,
+                    0.0,
+                    0.7015182513190482,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "right": {
+              "node_id": 13,
+              "feature": 7,
+              "feature_name": "iat_mean",
+              "threshold": 0.013302778825163841,
+              "left": {
+                "node_id": 14,
+                "value": [
+                  0.012010554729914167,
+                  0.0,
+                  0.0,
+                  0.9879894452700858,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 15,
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          "right": {
+            "node_id": 16,
+            "feature": 17,
+            "feature_name": "p8_len",
+            "threshold": 1003.1951904296875,
+            "left": {
+              "node_id": 17,
+              "value": [
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 18,
+              "value": [
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        },
+        "right": {
+          "node_id": 19,
+          "feature": 11,
+          "feature_name": "p2_len",
+          "threshold": 140.7205810546875,
+          "left": {
+            "node_id": 20,
+            "feature": 9,
+            "feature_name": "bytes_ratio",
+            "threshold": 22.485145092010498,
+            "left": {
+              "node_id": 21,
+              "feature": 2,
+              "feature_name": "pkts_dst",
+              "threshold": 24.5,
+              "left": {
+                "node_id": 22,
+                "feature": 1,
+                "feature_name": "pkts_src",
+                "threshold": 23.5,
+                "left": {
+                  "node_id": 23,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "right": {
+                  "node_id": 24,
+                  "value": [
+                    0.23307828134196584,
+                    0.0,
+                    0.0,
+                    0.7669217186580342,
+                    0.0
+                  ]
+                }
+              },
+              "right": {
+                "node_id": 25,
+                "feature": 13,
+                "feature_name": "p4_len",
+                "threshold": 161.2861099243164,
+                "left": {
+                  "node_id": 26,
+                  "feature": 13,
+                  "feature_name": "p4_len",
+                  "threshold": 72.20236587524414,
+                  "left": {
+                    "node_id": 27,
+                    "value": [
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "right": {
+                    "node_id": 28,
+                    "feature": 1,
+                    "feature_name": "pkts_src",
+                    "threshold": 26.5,
+                    "left": {
+                      "node_id": 29,
+                      "value": [
+                        0.044301012175443744,
+                        0.9556989878245563,
+                        0.0,
+                        0.0,
+                        0.0
+                      ]
+                    },
+                    "right": {
+                      "node_id": 30,
+                      "value": [
+                        0.0,
+                        1.0,
+                        0.0,
+                        0.0,
+                        0.0
+                      ]
+                    }
+                  }
+                },
+                "right": {
+                  "node_id": 31,
+                  "feature": 4,
+                  "feature_name": "bytes_dst",
+                  "threshold": 25866.1123046875,
+                  "left": {
+                    "node_id": 32,
+                    "feature": 23,
+                    "feature_name": "p6_iat",
+                    "threshold": 0.06716824322938919,
+                    "left": {
+                      "node_id": 33,
+                      "value": [
+                        1.0,
+                        0.0,
+                        0.0,
+                        0.0,
+                        0.0
+                      ]
+                    },
+                    "right": {
+                      "node_id": 34,
+                      "value": [
+                        1.0,
+                        0.0,
+                        0.0,
+                        0.0,
+                        0.0
+                      ]
+                    }
+                  },
+                  "right": {
+                    "node_id": 35,
+                    "value": [
+                      0.04359953024075161,
+                      0.0,
+                      0.0,
+                      0.9564004697592484,
+                      0.0
+                    ]
+                  }
+                }
+              }
+            },
+            "right": {
+              "node_id": 36,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "right": {
+            "node_id": 37,
+            "feature": 9,
+            "feature_name": "bytes_ratio",
+            "threshold": 33.05801820755005,
+            "left": {
+              "node_id": 38,
+              "feature": 20,
+              "feature_name": "p3_iat",
+              "threshold": 0.12270067259669304,
+              "left": {
+                "node_id": 39,
+                "feature": 0,
+                "feature_name": "duration_sec",
+                "threshold": 0.36394721269607544,
+                "left": {
+                  "node_id": 40,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "right": {
+                  "node_id": 41,
+                  "feature": 27,
+                  "feature_name": "dest_port",
+                  "threshold": 890.0,
+                  "left": {
+                    "node_id": 42,
+                    "value": [
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "right": {
+                    "node_id": 43,
+                    "value": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      1.0,
+                      0.0
+                    ]
+                  }
+                }
+              },
+              "right": {
+                "node_id": 44,
+                "feature": 3,
+                "feature_name": "bytes_src",
+                "threshold": 14941.61328125,
+                "left": {
+                  "node_id": 45,
+                  "feature": 20,
+                  "feature_name": "p3_iat",
+                  "threshold": 0.12336106598377228,
+                  "left": {
+                    "node_id": 46,
+                    "value": [
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "right": {
+                    "node_id": 47,
+                    "value": [
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                },
+                "right": {
+                  "node_id": 48,
+                  "value": [
+                    0.029495009682705194,
+                    0.0,
+                    0.0,
+                    0.9705049903172948,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "right": {
+              "node_id": 49,
+              "feature": 7,
+              "feature_name": "iat_mean",
+              "threshold": 0.006317144026979804,
+              "left": {
+                "node_id": 50,
+                "feature": 20,
+                "feature_name": "p3_iat",
+                "threshold": 0.010951394215226173,
+                "left": {
+                  "node_id": 51,
+                  "value": [
+                    0.027757051186390096,
+                    0.0,
+                    0.97224294881361,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "right": {
+                  "node_id": 52,
+                  "feature": 20,
+                  "feature_name": "p3_iat",
+                  "threshold": 0.023384629748761654,
+                  "left": {
+                    "node_id": 53,
+                    "value": [
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "right": {
+                    "node_id": 54,
+                    "value": [
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              },
+              "right": {
+                "node_id": 55,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        }
+      },
+      "right": {
+        "node_id": 56,
+        "feature": 22,
+        "feature_name": "p5_iat",
+        "threshold": 4.586637260217685e-05,
+        "left": {
+          "node_id": 57,
+          "value": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right": {
+          "node_id": 58,
+          "value": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "node_id": 0,
+      "feature": 3,
+      "feature_name": "bytes_src",
+      "threshold": 151989.46484375,
+      "left": {
+        "node_id": 1,
+        "feature": 19,
+        "feature_name": "p2_iat",
+        "threshold": 0.0026827388210222125,
+        "left": {
+          "node_id": 2,
+          "feature": 8,
+          "feature_name": "iat_std",
+          "threshold": 0.0024875461822375655,
+          "left": {
+            "node_id": 3,
+            "feature": 1,
+            "feature_name": "pkts_src",
+            "threshold": 22.5,
+            "left": {
+              "node_id": 4,
+              "value": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "right": {
+              "node_id": 5,
+              "value": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          },
+          "right": {
+            "node_id": 6,
+            "feature": 3,
+            "feature_name": "bytes_src",
+            "threshold": 22350.443359375,
+            "left": {
+              "node_id": 7,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 8,
+              "value": [
+                0.08355605570403712,
+                0.0,
+                0.0,
+                0.9164439442959629,
+                0.0
+              ]
+            }
+          }
+        },
+        "right": {
+          "node_id": 9,
+          "feature": 13,
+          "feature_name": "p4_len",
+          "threshold": 140.24803161621094,
+          "left": {
+            "node_id": 10,
+            "feature": 26,
+            "feature_name": "payload_entropy_mean",
+            "threshold": 5.513625860214233,
+            "left": {
+              "node_id": 11,
+              "feature": 9,
+              "feature_name": "bytes_ratio",
+              "threshold": 937.4002990722656,
+              "left": {
+                "node_id": 12,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 13,
+                "value": [
+                  0.28050800662617337,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.7194919933738266
+                ]
+              }
+            },
+            "right": {
+              "node_id": 14,
+              "feature": 18,
+              "feature_name": "p1_iat",
+              "threshold": 0.06159723736345768,
+              "left": {
+                "node_id": 15,
+                "feature": 8,
+                "feature_name": "iat_std",
+                "threshold": 0.0013808258809149265,
+                "left": {
+                  "node_id": 16,
+                  "feature": 8,
+                  "feature_name": "iat_std",
+                  "threshold": 2.984680759254843e-05,
+                  "left": {
+                    "node_id": 17,
+                    "value": [
+                      0.0,
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "right": {
+                    "node_id": 18,
+                    "value": [
+                      0.0,
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                },
+                "right": {
+                  "node_id": 19,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "right": {
+                "node_id": 20,
+                "feature": 12,
+                "feature_name": "p3_len",
+                "threshold": 804.1582946777344,
+                "left": {
+                  "node_id": 21,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "right": {
+                  "node_id": 22,
+                  "value": [
+                    0.046371380895225266,
+                    0.0,
+                    0.0,
+                    0.9536286191047747,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "right": {
+            "node_id": 23,
+            "feature": 31,
+            "feature_name": "sni_present",
+            "threshold": 0.5,
+            "left": {
+              "node_id": 24,
+              "feature": 3,
+              "feature_name": "bytes_src",
+              "threshold": 6089.947448730469,
+              "left": {
+                "node_id": 25,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 26,
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            },
+            "right": {
+              "node_id": 27,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        }
+      },
+      "right": {
+        "node_id": 28,
+        "value": [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "node_id": 0,
+      "feature": 6,
+      "feature_name": "pkt_len_std",
+      "threshold": 3.999699354171753,
+      "left": {
+        "node_id": 1,
+        "feature": 28,
+        "feature_name": "tcp_syn_count",
+        "threshold": 10.5,
+        "left": {
+          "node_id": 2,
+          "feature": 2,
+          "feature_name": "pkts_dst",
+          "threshold": 13.0,
+          "left": {
+            "node_id": 3,
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "right": {
+            "node_id": 4,
+            "value": [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "right": {
+          "node_id": 5,
+          "value": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      },
+      "right": {
+        "node_id": 6,
+        "feature": 3,
+        "feature_name": "bytes_src",
+        "threshold": 152012.14453125,
+        "left": {
+          "node_id": 7,
+          "feature": 3,
+          "feature_name": "bytes_src",
+          "threshold": 14915.9365234375,
+          "left": {
+            "node_id": 8,
+            "feature": 26,
+            "feature_name": "payload_entropy_mean",
+            "threshold": 7.855940103530884,
+            "left": {
+              "node_id": 9,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 10,
+              "feature": 7,
+              "feature_name": "iat_mean",
+              "threshold": 0.022685938514769077,
+              "left": {
+                "node_id": 11,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 12,
+                "feature": 26,
+                "feature_name": "payload_entropy_mean",
+                "threshold": 7.878453969955444,
+                "left": {
+                  "node_id": 13,
+                  "value": [
+                    0.04821037253469686,
+                    0.0,
+                    0.0,
+                    0.9517896274653032,
+                    0.0
+                  ]
+                },
+                "right": {
+                  "node_id": 14,
+                  "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "right": {
+            "node_id": 15,
+            "feature": 2,
+            "feature_name": "pkts_dst",
+            "threshold": 8.0,
+            "left": {
+              "node_id": 16,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 17,
+              "feature": 6,
+              "feature_name": "pkt_len_std",
+              "threshold": 201.4939422607422,
+              "left": {
+                "node_id": 18,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 19,
+                "feature": 4,
+                "feature_name": "bytes_dst",
+                "threshold": 53069.85546875,
+                "left": {
+                  "node_id": 20,
+                  "feature": 16,
+                  "feature_name": "p7_len",
+                  "threshold": 311.972412109375,
+                  "left": {
+                    "node_id": 21,
+                    "feature": 19,
+                    "feature_name": "p2_iat",
+                    "threshold": 0.07478058710694313,
+                    "left": {
+                      "node_id": 22,
+                      "value": [
+                        0.029495009682705197,
+                        0.0,
+                        0.0,
+                        0.9705049903172948,
+                        0.0
+                      ]
+                    },
+                    "right": {
+                      "node_id": 23,
+                      "value": [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0,
+                        0.0
+                      ]
+                    }
+                  },
+                  "right": {
+                    "node_id": 24,
+                    "value": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      1.0,
+                      0.0
+                    ]
+                  }
+                },
+                "right": {
+                  "node_id": 25,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "right": {
+          "node_id": 26,
+          "value": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "node_id": 0,
+      "feature": 13,
+      "feature_name": "p4_len",
+      "threshold": 139.72722625732422,
+      "left": {
+        "node_id": 1,
+        "feature": 18,
+        "feature_name": "p1_iat",
+        "threshold": 0.003492325311526656,
+        "left": {
+          "node_id": 2,
+          "feature": 8,
+          "feature_name": "iat_std",
+          "threshold": 0.0019523611408658326,
+          "left": {
+            "node_id": 3,
+            "feature": 18,
+            "feature_name": "p1_iat",
+            "threshold": 4.906174581265077e-05,
+            "left": {
+              "node_id": 4,
+              "value": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "right": {
+              "node_id": 5,
+              "value": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          },
+          "right": {
+            "node_id": 6,
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "right": {
+          "node_id": 7,
+          "feature": 6,
+          "feature_name": "pkt_len_std",
+          "threshold": 3.0240843296051025,
+          "left": {
+            "node_id": 8,
+            "feature": 8,
+            "feature_name": "iat_std",
+            "threshold": 0.0011104142176918685,
+            "left": {
+              "node_id": 9,
+              "feature": 24,
+              "feature_name": "p7_iat",
+              "threshold": 0.03991161473095417,
+              "left": {
+                "node_id": 10,
+                "value": [
+                  0.0848433768787751,
+                  0.9151566231212249,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 11,
+                "value": [
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "right": {
+              "node_id": 12,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "right": {
+            "node_id": 13,
+            "feature": 5,
+            "feature_name": "pkt_len_mean",
+            "threshold": 499.89039611816406,
+            "left": {
+              "node_id": 14,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 15,
+              "feature": 26,
+              "feature_name": "payload_entropy_mean",
+              "threshold": 7.712030410766602,
+              "left": {
+                "node_id": 16,
+                "feature": 25,
+                "feature_name": "p8_iat",
+                "threshold": 0.08046741783618927,
+                "left": {
+                  "node_id": 17,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "right": {
+                  "node_id": 18,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "right": {
+                "node_id": 19,
+                "value": [
+                  0.008608508510684551,
+                  0.0,
+                  0.0,
+                  0.9913914914893155,
+                  0.0
+                ]
+              }
+            }
+          }
+        }
+      },
+      "right": {
+        "node_id": 20,
+        "feature": 19,
+        "feature_name": "p2_iat",
+        "threshold": 0.011042419821023941,
+        "left": {
+          "node_id": 21,
+          "feature": 3,
+          "feature_name": "bytes_src",
+          "threshold": 150873.890625,
+          "left": {
+            "node_id": 22,
+            "feature": 27,
+            "feature_name": "dest_port",
+            "threshold": 890.0,
+            "left": {
+              "node_id": 23,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 24,
+              "value": [
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          },
+          "right": {
+            "node_id": 25,
+            "feature": 8,
+            "feature_name": "iat_std",
+            "threshold": 0.0006528775847982615,
+            "left": {
+              "node_id": 26,
+              "value": [
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 27,
+              "value": [
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        },
+        "right": {
+          "node_id": 28,
+          "feature": 31,
+          "feature_name": "sni_present",
+          "threshold": 0.5,
+          "left": {
+            "node_id": 29,
+            "feature": 6,
+            "feature_name": "pkt_len_std",
+            "threshold": 200.0575408935547,
+            "left": {
+              "node_id": 30,
+              "feature": 25,
+              "feature_name": "p8_iat",
+              "threshold": 0.013412026688456535,
+              "left": {
+                "node_id": 31,
+                "feature": 12,
+                "feature_name": "p3_len",
+                "threshold": 785.9852905273438,
+                "left": {
+                  "node_id": 32,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "right": {
+                  "node_id": 33,
+                  "value": [
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "right": {
+                "node_id": 34,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "right": {
+              "node_id": 35,
+              "feature": 1,
+              "feature_name": "pkts_src",
+              "threshold": 11.0,
+              "left": {
+                "node_id": 36,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 37,
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          "right": {
+            "node_id": 38,
+            "feature": 17,
+            "feature_name": "p8_len",
+            "threshold": 0.5110909938812256,
+            "left": {
+              "node_id": 39,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 40,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "node_id": 0,
+      "feature": 6,
+      "feature_name": "pkt_len_std",
+      "threshold": 3.999699354171753,
+      "left": {
+        "node_id": 1,
+        "feature": 16,
+        "feature_name": "p7_len",
+        "threshold": 80.75302124023438,
+        "left": {
+          "node_id": 2,
+          "feature": 18,
+          "feature_name": "p1_iat",
+          "threshold": 0.003492325311526656,
+          "left": {
+            "node_id": 3,
+            "feature": 18,
+            "feature_name": "p1_iat",
+            "threshold": 4.602435001288541e-05,
+            "left": {
+              "node_id": 4,
+              "value": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "right": {
+              "node_id": 5,
+              "value": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          },
+          "right": {
+            "node_id": 6,
+            "feature": 15,
+            "feature_name": "p6_len",
+            "threshold": 75.42785263061523,
+            "left": {
+              "node_id": 7,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 8,
+              "value": [
+                0.06501148105625716,
+                0.9349885189437428,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        },
+        "right": {
+          "node_id": 9,
+          "feature": 26,
+          "feature_name": "payload_entropy_mean",
+          "threshold": 5.483460426330566,
+          "left": {
+            "node_id": 10,
+            "feature": 25,
+            "feature_name": "p8_iat",
+            "threshold": 0.003074267413467169,
+            "left": {
+              "node_id": 11,
+              "value": [
+                0.0723337605012103,
+                0.0,
+                0.0,
+                0.0,
+                0.9276662394987897
+              ]
+            },
+            "right": {
+              "node_id": 12,
+              "feature": 14,
+              "feature_name": "p5_len",
+              "threshold": 98.32976150512695,
+              "left": {
+                "node_id": 13,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 14,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          "right": {
+            "node_id": 15,
+            "feature": 1,
+            "feature_name": "pkts_src",
+            "threshold": 13.5,
+            "left": {
+              "node_id": 16,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 17,
+              "value": [
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        }
+      },
+      "right": {
+        "node_id": 18,
+        "feature": 7,
+        "feature_name": "iat_mean",
+        "threshold": 0.00991661474108696,
+        "left": {
+          "node_id": 19,
+          "feature": 26,
+          "feature_name": "payload_entropy_mean",
+          "threshold": 7.596098184585571,
+          "left": {
+            "node_id": 20,
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "right": {
+            "node_id": 21,
+            "feature": 29,
+            "feature_name": "tcp_fin_count",
+            "threshold": 0.5,
+            "left": {
+              "node_id": 22,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 23,
+              "feature": 1,
+              "feature_name": "pkts_src",
+              "threshold": 290.0,
+              "left": {
+                "node_id": 24,
+                "value": [
+                  0.0666189111747851,
+                  0.0,
+                  0.9333810888252149,
+                  0.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 25,
+                "value": [
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        },
+        "right": {
+          "node_id": 26,
+          "feature": 1,
+          "feature_name": "pkts_src",
+          "threshold": 24.5,
+          "left": {
+            "node_id": 27,
+            "feature": 26,
+            "feature_name": "payload_entropy_mean",
+            "threshold": 7.867698669433594,
+            "left": {
+              "node_id": 28,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 29,
+              "feature": 0,
+              "feature_name": "duration_sec",
+              "threshold": 0.494153767824173,
+              "left": {
+                "node_id": 30,
+                "value": [
+                  0.13191205862758162,
+                  0.0,
+                  0.0,
+                  0.8680879413724184,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 31,
+                "feature": 7,
+                "feature_name": "iat_mean",
+                "threshold": 0.03561240807175636,
+                "left": {
+                  "node_id": 32,
+                  "feature": 7,
+                  "feature_name": "iat_mean",
+                  "threshold": 0.026427541859447956,
+                  "left": {
+                    "node_id": 33,
+                    "value": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      1.0,
+                      0.0
+                    ]
+                  },
+                  "right": {
+                    "node_id": 34,
+                    "value": [
+                      0.019858582819316985,
+                      0.0,
+                      0.0,
+                      0.980141417180683,
+                      0.0
+                    ]
+                  }
+                },
+                "right": {
+                  "node_id": 35,
+                  "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "right": {
+            "node_id": 36,
+            "feature": 28,
+            "feature_name": "tcp_syn_count",
+            "threshold": 0.5,
+            "left": {
+              "node_id": 37,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 38,
+              "feature": 4,
+              "feature_name": "bytes_dst",
+              "threshold": 4571.5997314453125,
+              "left": {
+                "node_id": 39,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 40,
+                "feature": 29,
+                "feature_name": "tcp_fin_count",
+                "threshold": 0.5,
+                "left": {
+                  "node_id": 41,
+                  "feature": 2,
+                  "feature_name": "pkts_dst",
+                  "threshold": 77.5,
+                  "left": {
+                    "node_id": 42,
+                    "feature": 17,
+                    "feature_name": "p8_len",
+                    "threshold": 1523.911865234375,
+                    "left": {
+                      "node_id": 43,
+                      "feature": 6,
+                      "feature_name": "pkt_len_std",
+                      "threshold": 202.43992614746094,
+                      "left": {
+                        "node_id": 44,
+                        "value": [
+                          0.057299956590941975,
+                          0.0,
+                          0.0,
+                          0.942700043409058,
+                          0.0
+                        ]
+                      },
+                      "right": {
+                        "node_id": 45,
+                        "feature": 9,
+                        "feature_name": "bytes_ratio",
+                        "threshold": 0.36897438764572144,
+                        "left": {
+                          "node_id": 46,
+                          "value": [
+                            0.017070069185507686,
+                            0.0,
+                            0.0,
+                            0.9829299308144923,
+                            0.0
+                          ]
+                        },
+                        "right": {
+                          "node_id": 47,
+                          "value": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0,
+                            0.0
+                          ]
+                        }
+                      }
+                    },
+                    "right": {
+                      "node_id": 48,
+                      "feature": 18,
+                      "feature_name": "p1_iat",
+                      "threshold": 0.06105902045965195,
+                      "left": {
+                        "node_id": 49,
+                        "value": [
+                          0.05729995659094197,
+                          0.0,
+                          0.0,
+                          0.942700043409058,
+                          0.0
+                        ]
+                      },
+                      "right": {
+                        "node_id": 50,
+                        "value": [
+                          0.0,
+                          0.0,
+                          0.0,
+                          1.0,
+                          0.0
+                        ]
+                      }
+                    }
+                  },
+                  "right": {
+                    "node_id": 51,
+                    "value": [
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                },
+                "right": {
+                  "node_id": 52,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "node_id": 0,
+      "feature": 28,
+      "feature_name": "tcp_syn_count",
+      "threshold": 10.5,
+      "left": {
+        "node_id": 1,
+        "feature": 26,
+        "feature_name": "payload_entropy_mean",
+        "threshold": 7.601693153381348,
+        "left": {
+          "node_id": 2,
+          "feature": 5,
+          "feature_name": "pkt_len_mean",
+          "threshold": 140.02446746826172,
+          "left": {
+            "node_id": 3,
+            "feature": 7,
+            "feature_name": "iat_mean",
+            "threshold": 0.0399644561111927,
+            "left": {
+              "node_id": 4,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 5,
+              "feature": 1,
+              "feature_name": "pkts_src",
+              "threshold": 24.5,
+              "left": {
+                "node_id": 6,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 7,
+                "feature": 4,
+                "feature_name": "bytes_dst",
+                "threshold": 2963.9920654296875,
+                "left": {
+                  "node_id": 8,
+                  "feature": 16,
+                  "feature_name": "p7_len",
+                  "threshold": 139.9312286376953,
+                  "left": {
+                    "node_id": 9,
+                    "value": [
+                      0.0,
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "right": {
+                    "node_id": 10,
+                    "value": [
+                      0.011455883468629085,
+                      0.9885441165313709,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                },
+                "right": {
+                  "node_id": 11,
+                  "value": [
+                    0.05820845179010263,
+                    0.9417915482098974,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "right": {
+            "node_id": 12,
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "right": {
+          "node_id": 13,
+          "feature": 4,
+          "feature_name": "bytes_dst",
+          "threshold": 5076.65234375,
+          "left": {
+            "node_id": 14,
+            "feature": 31,
+            "feature_name": "sni_present",
+            "threshold": 0.5,
+            "left": {
+              "node_id": 15,
+              "value": [
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 16,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "right": {
+            "node_id": 17,
+            "feature": 27,
+            "feature_name": "dest_port",
+            "threshold": 890.0,
+            "left": {
+              "node_id": 18,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 19,
+              "value": [
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          }
+        }
+      },
+      "right": {
+        "node_id": 20,
+        "feature": 20,
+        "feature_name": "p3_iat",
+        "threshold": 2.35711277127848e-05,
+        "left": {
+          "node_id": 21,
+          "value": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right": {
+          "node_id": 22,
+          "value": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "node_id": 0,
+      "feature": 26,
+      "feature_name": "payload_entropy_mean",
+      "threshold": 1.2533395290374756,
+      "left": {
+        "node_id": 1,
+        "value": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "right": {
+        "node_id": 2,
+        "feature": 5,
+        "feature_name": "pkt_len_mean",
+        "threshold": 139.93859100341797,
+        "left": {
+          "node_id": 3,
+          "feature": 25,
+          "feature_name": "p8_iat",
+          "threshold": 0.039028337225317955,
+          "left": {
+            "node_id": 4,
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "right": {
+            "node_id": 5,
+            "feature": 6,
+            "feature_name": "pkt_len_std",
+            "threshold": 3.005101799964905,
+            "left": {
+              "node_id": 6,
+              "feature": 23,
+              "feature_name": "p6_iat",
+              "threshold": 0.06412537395954132,
+              "left": {
+                "node_id": 7,
+                "feature": 0,
+                "feature_name": "duration_sec",
+                "threshold": 1.2822363823652267,
+                "left": {
+                  "node_id": 8,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "right": {
+                  "node_id": 9,
+                  "value": [
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "right": {
+                "node_id": 10,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "right": {
+              "node_id": 11,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        },
+        "right": {
+          "node_id": 12,
+          "feature": 3,
+          "feature_name": "bytes_src",
+          "threshold": 151989.46484375,
+          "left": {
+            "node_id": 13,
+            "feature": 20,
+            "feature_name": "p3_iat",
+            "threshold": 0.12181853502988815,
+            "left": {
+              "node_id": 14,
+              "feature": 3,
+              "feature_name": "bytes_src",
+              "threshold": 14551.0859375,
+              "left": {
+                "node_id": 15,
+                "feature": 26,
+                "feature_name": "payload_entropy_mean",
+                "threshold": 7.853574514389038,
+                "left": {
+                  "node_id": 16,
+                  "feature": 9,
+                  "feature_name": "bytes_ratio",
+                  "threshold": 0.0032399718184024096,
+                  "left": {
+                    "node_id": 17,
+                    "value": [
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "right": {
+                    "node_id": 18,
+                    "value": [
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                },
+                "right": {
+                  "node_id": 19,
+                  "feature": 26,
+                  "feature_name": "payload_entropy_mean",
+                  "threshold": 7.878453969955444,
+                  "left": {
+                    "node_id": 20,
+                    "value": [
+                      0.050499161990818345,
+                      0.0,
+                      0.0,
+                      0.9495008380091816,
+                      0.0
+                    ]
+                  },
+                  "right": {
+                    "node_id": 21,
+                    "feature": 3,
+                    "feature_name": "bytes_src",
+                    "threshold": 11103.26904296875,
+                    "left": {
+                      "node_id": 22,
+                      "value": [
+                        0.019858582819316985,
+                        0.0,
+                        0.0,
+                        0.980141417180683,
+                        0.0
+                      ]
+                    },
+                    "right": {
+                      "node_id": 23,
+                      "value": [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0,
+                        0.0
+                      ]
+                    }
+                  }
+                }
+              },
+              "right": {
+                "node_id": 24,
+                "feature": 9,
+                "feature_name": "bytes_ratio",
+                "threshold": 7311.916055679321,
+                "left": {
+                  "node_id": 25,
+                  "feature": 31,
+                  "feature_name": "sni_present",
+                  "threshold": 0.5,
+                  "left": {
+                    "node_id": 26,
+                    "feature": 21,
+                    "feature_name": "p4_iat",
+                    "threshold": 0.0014552122447639704,
+                    "left": {
+                      "node_id": 27,
+                      "value": [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0,
+                        0.0
+                      ]
+                    },
+                    "right": {
+                      "node_id": 28,
+                      "value": [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0,
+                        0.0
+                      ]
+                    }
+                  },
+                  "right": {
+                    "node_id": 29,
+                    "value": [
+                      1.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                },
+                "right": {
+                  "node_id": 30,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "right": {
+              "node_id": 31,
+              "feature": 1,
+              "feature_name": "pkts_src",
+              "threshold": 26.5,
+              "left": {
+                "node_id": 32,
+                "feature": 19,
+                "feature_name": "p2_iat",
+                "threshold": 0.0032245891634374857,
+                "left": {
+                  "node_id": 33,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "right": {
+                  "node_id": 34,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "right": {
+                "node_id": 35,
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          "right": {
+            "node_id": 36,
+            "value": [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "node_id": 0,
+      "feature": 6,
+      "feature_name": "pkt_len_std",
+      "threshold": 4.011548757553101,
+      "left": {
+        "node_id": 1,
+        "feature": 0,
+        "feature_name": "duration_sec",
+        "threshold": 1.4265151768922806,
+        "left": {
+          "node_id": 2,
+          "feature": 24,
+          "feature_name": "p7_iat",
+          "threshold": 0.0033324664691463113,
+          "left": {
+            "node_id": 3,
+            "feature": 28,
+            "feature_name": "tcp_syn_count",
+            "threshold": 21.5,
+            "left": {
+              "node_id": 4,
+              "value": [
+                0.10471348083001236,
+                0.0,
+                0.0,
+                0.0,
+                0.8952865191699876
+              ]
+            },
+            "right": {
+              "node_id": 5,
+              "value": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          },
+          "right": {
+            "node_id": 6,
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "right": {
+          "node_id": 7,
+          "value": [
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "right": {
+        "node_id": 8,
+        "feature": 3,
+        "feature_name": "bytes_src",
+        "threshold": 151874.3515625,
+        "left": {
+          "node_id": 9,
+          "feature": 29,
+          "feature_name": "tcp_fin_count",
+          "threshold": 0.5,
+          "left": {
+            "node_id": 10,
+            "feature": 26,
+            "feature_name": "payload_entropy_mean",
+            "threshold": 7.851250171661377,
+            "left": {
+              "node_id": 11,
+              "value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 12,
+              "feature": 4,
+              "feature_name": "bytes_dst",
+              "threshold": 100280.734375,
+              "left": {
+                "node_id": 13,
+                "feature": 4,
+                "feature_name": "bytes_dst",
+                "threshold": 2544.38427734375,
+                "left": {
+                  "node_id": 14,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "right": {
+                  "node_id": 15,
+                  "feature": 18,
+                  "feature_name": "p1_iat",
+                  "threshold": 0.0033984911860898137,
+                  "left": {
+                    "node_id": 16,
+                    "value": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      1.0,
+                      0.0
+                    ]
+                  },
+                  "right": {
+                    "node_id": 17,
+                    "value": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      1.0,
+                      0.0
+                    ]
+                  }
+                }
+              },
+              "right": {
+                "node_id": 18,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          "right": {
+            "node_id": 19,
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "right": {
+          "node_id": 20,
+          "value": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "node_id": 0,
+      "feature": 31,
+      "feature_name": "sni_present",
+      "threshold": 0.5,
+      "left": {
+        "node_id": 1,
+        "feature": 28,
+        "feature_name": "tcp_syn_count",
+        "threshold": 10.5,
+        "left": {
+          "node_id": 2,
+          "feature": 22,
+          "feature_name": "p5_iat",
+          "threshold": 0.011697444133460522,
+          "left": {
+            "node_id": 3,
+            "feature": 1,
+            "feature_name": "pkts_src",
+            "threshold": 128.0,
+            "left": {
+              "node_id": 4,
+              "feature": 3,
+              "feature_name": "bytes_src",
+              "threshold": 10224.673889160156,
+              "left": {
+                "node_id": 5,
+                "value": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 6,
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            },
+            "right": {
+              "node_id": 7,
+              "value": [
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "right": {
+            "node_id": 8,
+            "feature": 27,
+            "feature_name": "dest_port",
+            "threshold": 890.0,
+            "left": {
+              "node_id": 9,
+              "feature": 16,
+              "feature_name": "p7_len",
+              "threshold": 1028.0368957519531,
+              "left": {
+                "node_id": 10,
+                "feature": 1,
+                "feature_name": "pkts_src",
+                "threshold": 1.5,
+                "left": {
+                  "node_id": 11,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "right": {
+                  "node_id": 12,
+                  "value": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "right": {
+                "node_id": 13,
+                "value": [
+                  0.007086794178160482,
+                  0.0,
+                  0.9929132058218395,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "right": {
+              "node_id": 14,
+              "feature": 1,
+              "feature_name": "pkts_src",
+              "threshold": 78.5,
+              "left": {
+                "node_id": 15,
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              "right": {
+                "node_id": 16,
+                "value": [
+                  0.0,
+                  0.0,
+                  0.34736842105263155,
+                  0.6526315789473685,
+                  0.0
+                ]
+              }
+            }
+          }
+        },
+        "right": {
+          "node_id": 17,
+          "feature": 15,
+          "feature_name": "p6_len",
+          "threshold": 53.35111427307129,
+          "left": {
+            "node_id": 18,
+            "value": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "right": {
+            "node_id": 19,
+            "value": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "right": {
+        "node_id": 20,
+        "feature": 8,
+        "feature_name": "iat_std",
+        "threshold": 0.0009957103757187724,
+        "left": {
+          "node_id": 21,
+          "feature": 3,
+          "feature_name": "bytes_src",
+          "threshold": 206.06764221191406,
+          "left": {
+            "node_id": 22,
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "right": {
+            "node_id": 23,
+            "feature": 13,
+            "feature_name": "p4_len",
+            "threshold": 140.29688262939453,
+            "left": {
+              "node_id": 24,
+              "value": [
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "right": {
+              "node_id": 25,
+              "value": [
+                0.2176053800888675,
+                0.7823946199111325,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        },
+        "right": {
+          "node_id": 26,
+          "value": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    }
+  ]
+}

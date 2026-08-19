@@ -1,0 +1,53 @@
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# ── Virtual environments ──
+.venv/
+venv/
+env/
+ENV/
+
+# ── Output / generated PCAP files (keep test inputs, skip outputs) ──
+output*.pcap
+out_block_*.pcap
+output_test_local.pcap
+output_full.pcap
+
+# ── Generated reports (runtime artifacts) ──
+reports/
+
+# ── IDE / OS ──
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ── Compiled C++ binary (platform-specific) ──
+dpi_engine
+*.exe
+*.dll
+*.so
+*.obj
+*.pdb
+
+# ── CMake build artifacts ──
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.make
+
+# ── Keep these (needed for ML to work) ──
+# models/classifier_model.json  ← tracked
+# models/anomaly_model.json     ← tracked
+# test_dpi.pcap                 ← tracked (input sample)
+# test_attack.pcap              ← tracked (input sample)
+# test_full_threats.pcap        ← tracked (input sample)
