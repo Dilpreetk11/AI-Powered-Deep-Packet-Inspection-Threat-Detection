@@ -235,7 +235,7 @@ if not df_filtered.empty:
             "application", "threat_score", "threat_level", "confidence",
             "anomaly_score", "attack_type", "decision", "rationale"
         ]],
-        use_container_width=True,   # will update to width='stretch' when dropping Streamlit <1.61 support
+        width="stretch",
         height=320,
     )
 
